@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mi Perfil"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="32dp" />
+
+        <EditText
+            android:id="@+id/etDni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DNI"
+            android:enabled="false"
+            android:inputType="number"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail"
+            android:enabled="false"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teléfono"
+            android:enabled="false"
+            android:inputType="phone"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:padding="14dp"
+            android:text="EDITAR"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

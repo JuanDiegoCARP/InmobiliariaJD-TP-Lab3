@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/marcador"
-            android:title="@string/menu_home"
+            android:title="Mapa"
             />
         <item
             android:id="@+id/nav_gallery"
