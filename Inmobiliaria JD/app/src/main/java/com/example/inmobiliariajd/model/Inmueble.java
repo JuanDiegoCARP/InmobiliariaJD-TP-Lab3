@@ -35,6 +35,9 @@ public class Inmueble implements Serializable {
         this.duenio = duenio;
     }
 
+    public Inmueble() {
+    }
+
     // Getters y Setters
     public int getIdInmueble() {
         return idInmueble;
