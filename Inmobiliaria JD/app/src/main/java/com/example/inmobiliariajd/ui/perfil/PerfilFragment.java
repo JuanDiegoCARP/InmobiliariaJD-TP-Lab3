@@ -10,8 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 
+import com.example.inmobiliariajd.R;
 import com.example.inmobiliariajd.databinding.FragmentPerfilBinding;
 import com.example.inmobiliariajd.model.Propietario;
 
@@ -75,6 +77,20 @@ binding.btEditar.setOnClickListener(new View.OnClickListener() {
         vm.guardar(binding.btEditar.getText().toString(), dni, nombre, apellido, mail, telefono);
     }
 });
+        vm.getmError().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                binding.tvErrorPerfil.setText(s.toString());
+            }
+        });
+
+        binding.btnCambiarContrasena.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_gallery_to_cambiarContraseniaFragment);
+            }
+        });
+
 
     return binding.getRoot();
     }

@@ -92,7 +92,6 @@ public class CargarInmueblesViewModel extends AndroidViewModel {
         inmueble.setTipo(tipo);
         inmueble.setValor(precioD);
         inmueble.setDisponible(disponible);
-        //inmueble.setImagen(mUri.getValue().toString());
         byte[] imagen = transformarImagen();
         String inmuebleJson = new Gson().toJson(inmueble);
         RequestBody inmuebleBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), inmuebleJson);
@@ -120,7 +119,7 @@ public class CargarInmueblesViewModel extends AndroidViewModel {
 
     private byte[] transformarImagen() {
         try {
-            Uri uri = mUri.getValue();  //lo puedo usar porque estoy en viewmodel
+            Uri uri = mUri.getValue();
             InputStream inputStream = getApplication().getContentResolver().openInputStream(uri);
             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

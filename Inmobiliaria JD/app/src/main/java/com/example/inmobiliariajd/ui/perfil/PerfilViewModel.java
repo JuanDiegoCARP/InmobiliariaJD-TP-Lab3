@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.inmobiliariajd.model.Propietario;
@@ -22,28 +23,35 @@ public class PerfilViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mIcono = new MutableLiveData<>();
 
+    private MutableLiveData<String> mError = new MutableLiveData<>();
+
     public PerfilViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public MutableLiveData<Propietario> getMp() {
+    public LiveData<String> getmError(){
+        return mError;
+    }
+
+    public LiveData<Propietario> getMp() {
         return mp;
     }
 
-    public MutableLiveData<Boolean> getBmEstado() {
+    public LiveData<Boolean> getBmEstado() {
         return bmEstado;
     }
 
-    public MutableLiveData<String> getmIcono() {
+    public LiveData<String> getmIcono() {
         return mIcono;
     }
+
+
 
     public void guardar(String icono, String dni, String nombre, String apellido, String mail, String telefono){
         if(icono.equalsIgnoreCase("editar")){
             bmEstado.setValue(true);
             mIcono.setValue("guardar");
         }else{
-            // Validar campos
             Propietario p = new Propietario();
             p.setIdPropietario(mp.getValue().getIdPropietario());
             p.setDni(dni);

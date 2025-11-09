@@ -53,7 +53,7 @@ public class CargarInmueblesFragment extends Fragment {
 
         });
 
-        mViewModel.getmUri().observe(this, new Observer<Uri>() {
+        mViewModel.getmUri().observe(getViewLifecycleOwner(), new Observer<Uri>() {
             @Override
             public void onChanged(Uri uri) {
                 binding.imageView3.setImageURI(uri);

@@ -3,7 +3,9 @@ package com.example.inmobiliariajd.request;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.inmobiliariajd.model.Contratos;
 import com.example.inmobiliariajd.model.Inmueble;
+import com.example.inmobiliariajd.model.Pagos;
 import com.example.inmobiliariajd.model.Propietario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,9 +22,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public class ApiClient {
     public static final String URLBASE ="https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/";
@@ -40,26 +44,38 @@ public class ApiClient {
     }
 
     public interface InmoServicio{
+
         @FormUrlEncoded
         @POST("api/Propietarios/login")
         Call<String> login(@Field("Usuario") String u, @Field("Clave") String c);
 
         @GET("api/Propietarios")
         Call<Propietario> obtenerPropietario(@Header("Authorization") String token);
+
         @PUT("api/Propietarios/actualizar")
         Call<Propietario> actualizarPropietario(@Header("Authorization") String token, @Body Propietario propietario);
 
+        @FormUrlEncoded
+        @PUT("api/Propietarios/changePassword")
+        Call<Propietario> actualizarContraseña(@Header("Authorization") String token, @Field("currentPassword") String claveActual, @Field("newPassword") String nuevaClave);
+
         @GET("api/Inmuebles")
         Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization") String token);
-
+        @GET("api/inmuebles/GetContratoVigente")
+        Call<List<Inmueble>> obtenerInmueblesVigentes(@Header("Authorization") String token);
         @PUT("api/Inmuebles/actualizar")
         Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
-
+        @Multipart
         @POST("api/Inmuebles/cargar")
         Call<Inmueble> CargarInmueble(@Header("Authorization") String token,
                                       @Part MultipartBody.Part imagen,
                                       @Part("inmueble") RequestBody inmueble);
 
+        @GET("api/contratos/inmueble/{id}")
+        Call<Contratos> obtenerContratosPorInmuebles(@Header("Authorization") String token, @Path("id") int id);
+
+        @GET("api/pagos/contrato/{id}")
+        Call<List<Pagos>> obtenerPagosPorContrato(@Header("Authorization") String token, @Path("id") int id);
     }
 
     public static InmoServicio getApiInmobiliario(){

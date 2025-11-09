@@ -10,7 +10,7 @@ public class Propietario implements Serializable {
     private String apellido;
     private String nombre;
     private String telefono;
-    @SerializedName("email") //
+    @SerializedName("email")
     private String mail;
     private String password;
 

@@ -1,4 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7F7F7">
@@ -9,6 +12,12 @@
         android:orientation="vertical"
         android:padding="24dp"
         android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/tvErrorPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000" />
 
         <TextView
             android:id="@+id/tvTitulo"
@@ -85,10 +94,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
+            android:backgroundTint="#790022"
             android:padding="14dp"
             android:text="EDITAR"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCambiarContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#790022"
+            android:text="Cambiar contraseña"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_lock_idle_lock"
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 </ScrollView>
